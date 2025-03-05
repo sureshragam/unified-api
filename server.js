@@ -12,14 +12,15 @@ let server; // Declare server globally to be able to close it when shutting down
 
 const initializeDBandStartServer = async () => {
   try{
-    await mongoose.connect(DBConection,{
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    await mongoose.connect(DBConection)
 
     console.log('Database connected successfully!!');
   
     const app = require('./app');
+
+    app.get('/health', (req, res) => { // Health check endpoint to verify if the server is running or not
+      res.status(200).json({ status: 'UP' });
+    });
   
     server = app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT || 3000}`);
