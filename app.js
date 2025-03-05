@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 
 
 
-app.use('/api/v1/products', ProductsRoute);
+app.use('/api/v1/ugaoo/products', ProductsRoute);
 
 
 app.use(errorHandler);
