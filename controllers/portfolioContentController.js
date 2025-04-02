@@ -1,6 +1,6 @@
-export const getPortfolioContent = (req, res) => {
+exports.getPortfolioContent = (req, res) => {
 	try {
-		const portfolioContent = require("../portfolio.json");
+		const portfolioContent = require("../data/portfolio.json");
 		res.status(200).json({
 			status: "success",
 			data: portfolioContent,
