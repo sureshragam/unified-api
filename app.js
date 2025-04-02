@@ -11,6 +11,7 @@ const limiter = rateLimit({
 });
 
 const ProductsRoute = require("./routes/productsRoute");
+const PortfolioContentRoute = require("./routes/portfolioContentRoute");
 const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
