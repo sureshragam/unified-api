@@ -21,7 +21,7 @@ app.use(morgan("dev"));
 app.use(limiter);
 
 app.use("/api/v1/ugaoo/products", ProductsRoute);
-
+app.use("/api/v1/portfolio/content", PortfolioContentRoute);
 app.use(errorHandler);
 
 module.exports = app;
