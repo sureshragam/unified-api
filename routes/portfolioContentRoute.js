@@ -1,11 +1,12 @@
 const express = require("express");
 
-const {
-	getPortfolioContent,
-} = require("../controllers/portfolioContentController");
+module.exports = (db2) => {
+	const { getPortfolioContent } =
+		require("../controllers/portfolioContentController")(db2);
 
-const PortfolioContentRoute = express.Router();
+	const router = express.Router();
 
-PortfolioContentRoute.get("/", getPortfolioContent); // API to get all portfolio content data from portfolio.json file)
+	router.get("/", getPortfolioContent); // You can add more routes if needed
 
-module.exports = PortfolioContentRoute;
+	return router;
+};
