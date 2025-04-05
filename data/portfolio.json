@@ -7,19 +7,19 @@
         },
         {
             "name": "About",
-            "url": "/about"
+            "url": "about"
         },
         {
             "name": "Projects",
-            "url": "/projects"
+            "url": "projects"
         },
         {
             "name":"Certificates",
-            "url": "/certificates"
+            "url": "certificates"
         },
         {
             "name": "Contact",
-            "url": "/contact"
+            "url": "contact"
         }
     ],
     "home": {

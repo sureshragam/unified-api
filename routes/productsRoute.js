@@ -1,17 +1,27 @@
-const express = require('express');
+const express = require("express");
 
-const {getProducts,getProductById,getCategories,getProductsByCategory,getBestSellers,getBestPicks,getNewArrivals,getProductBySearch} = require('../controllers/productsController');
+module.exports = (db1) => {
+	const {
+		getProducts,
+		getProductById,
+		getCategories,
+		getProductsByCategory,
+		getBestSellers,
+		getBestPicks,
+		getNewArrivals,
+		getProductBySearch,
+	} = require("../controllers/productsController")(db1); // pass db1 to controllers
 
-const  ProductsRoute = express.Router();
+	const ProductsRoute = express.Router();
 
-ProductsRoute.get('/', getProducts);  // API to get all products data from ugaoo.json file)
-ProductsRoute.get('/categories',getCategories) // API to get all categories  from ugaoo.json file)
-ProductsRoute.get('/category/:category', getProductsByCategory); // API to get products by category from ugaoo.json file)
-ProductsRoute.get('/best-sellers', getBestSellers); // API to get best sellers products from ugaoo.json file)
-ProductsRoute.get('/best-picks', getBestPicks); // API to get best picks products from ugaoo.json file)
-ProductsRoute.get('/new-arrivals', getNewArrivals); // API to get new arrivals products from ugaoo.json file)
-ProductsRoute.get('/search',getProductBySearch); // API to get products by search from ugaoo.json file)
-ProductsRoute.get('/:id',getProductById);  // API to get product data by id from ugaoo.json file)
+	ProductsRoute.get("/", getProducts);
+	ProductsRoute.get("/categories", getCategories);
+	ProductsRoute.get("/category/:category", getProductsByCategory);
+	ProductsRoute.get("/best-sellers", getBestSellers);
+	ProductsRoute.get("/best-picks", getBestPicks);
+	ProductsRoute.get("/new-arrivals", getNewArrivals);
+	ProductsRoute.get("/search", getProductBySearch);
+	ProductsRoute.get("/:id", getProductById);
 
-
-module.exports=ProductsRoute;
+	return ProductsRoute;
+};
