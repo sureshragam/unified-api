@@ -25,14 +25,7 @@ let server; // Declare server globally to be able to close it when shutting down
 
 const initializeDBandStartServer = async () => {
 	try {
-		// await mongoose.connect(DBConection);
-
-		// console.log("Database connected successfully!!");
-
 		// Connect to first DB
-
-		console.log("DB1 Connection String:", DB1_Conection);
-		console.log("DB2 Connection String:", DB2_Conection);
 
 		const db1 = mongoose.createConnection(DB1_Conection);
 		console.log("✅ DB1 (Ugaoo) connected!");
