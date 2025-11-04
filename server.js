@@ -27,12 +27,30 @@ const initializeDBandStartServer = async () => {
 	try {
 		// Connect to first DB
 
-		const db1 = mongoose.createConnection(DB1_Conection);
-		console.log("✅ DB1 (Ugaoo) connected!");
-
+		// Connect to first DB
+		const db1 = await mongoose.createConnection(DB1_Conection)
+		  .asPromise()
+		  .then(conn => {
+		    console.log("✅ DB1 (Ugaoo) connected!");
+		    return conn;
+		  })
+		  .catch(err => {
+		    console.error("❌ DB1 connection failed:", err.message);
+		    process.exit(1);
+		  });
+		
 		// Connect to second DB
-		const db2 = mongoose.createConnection(DB2_Conection);
-		console.log("✅ DB2 (Content Management) connected!");
+		const db2 = await mongoose.createConnection(DB2_Conection)
+		  .asPromise()
+		  .then(conn => {
+		    console.log("✅ DB2 (Content Management) connected!");
+		    return conn;
+		  })
+		  .catch(err => {
+		    console.error("❌ DB2 connection failed:", err.message);
+		    process.exit(1);
+		  });
+
 
 		const app = createApp(db1, db2);
 
