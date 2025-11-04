@@ -17,7 +17,7 @@ const createApp = (db1, db2) => {
 	app.use(express.json());
 	app.use(cors());
 	app.use(morgan("dev"));
-	app.use(limiter);
+	//app.use(limiter);
 
 	const ProductsRoute = require("./routes/productsRoute")(db1);
 	const PortfolioContentRoute = require("./routes/portfolioContentRoute")(db2);
